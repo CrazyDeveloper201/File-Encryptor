@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+
+        versionCode 1
+        versionName '1.0.0'
+    }
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.srcDirs
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.CrazyDeveloper201'
+                artifactId = 'FileEncryptor'
+                version = '1.0.0'
+                artifact sourcesJar
+            }
+        }
+    }
+}
