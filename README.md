@@ -43,7 +43,7 @@ dependencies {
 }
 ```
 
-> **Note:** Replace `1.0.1` with the latest released version when available.
+> **Note:** Replace `1.0.0` with the latest released version when available.
 
 ---
 
